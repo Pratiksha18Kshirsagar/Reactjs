@@ -7,10 +7,10 @@ function App() {
 
   return (
     <>
-    <div>{count}</div>
-     <button onClick={()=>{
-      setCount(count+1)
-     }}>click me</button>
+      <div>{count}</div>
+      <button onClick={() => {
+        setCount(count + 1)
+      }}>click me</button>
 
     </>
   )
