@@ -6,11 +6,13 @@ import './App.css'
 
 function App() {
   const [cards, setcards] = useState([])
+  
 
   const fetchData = async () => {
     let a = await fetch("https://jsonplaceholder.typicode.com/posts")
     let data = await a.json()
     setcards(data)
+    console.log(cards)
   }
   useEffect(() => {
 

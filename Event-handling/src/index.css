@@ -1,0 +1,18 @@
+.Mouse {
+  height: 200px;
+  width: 200px;
+  background-color: rgb(239, 169, 239);
+  border-radius: 10px;
+  color: black;
+  font-size: 35px;
+  align-content: center;
+}
+
+.container{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+}
