@@ -1,18 +1,20 @@
 import { useState, useEffect } from 'react'
 import Navbar from './components/navbar'
 import { v4 as uuidv4 } from 'uuid';
+import { FaRegEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 
 function App() {
 
   // input--empty--string
   const [todo, settodo] = useState("")
   const [todos, settodos] = useState([])
-  const [ShowFinished , setShowFinished] = useState(true)
+  const [ShowFinished, setShowFinished] = useState(true)
 
-  
-const toggleFinished = (params) => {
-  setShowFinished(!ShowFinished)
-}
+
+  const toggleFinished = (params) => {
+    setShowFinished(!ShowFinished)
+  }
 
 
   useEffect(() => {
@@ -72,37 +74,42 @@ const toggleFinished = (params) => {
   return (
     <>
       <Navbar />
-      <div className='container  my-5 bg-yellow-100 rounded-xl p-5 min-h-[70vh] min-w-10'>
-        <div className="addTodo">
-          <h2 className='text-lg font-bold text-pink-700'>Add a Todo</h2>
-          <input className='w-1/2' onChange={handelChange} value={todo} type="text" />
-          <button className='bg-pink-500 text-white rounded-md p-3 py-1 mx-4 hover:bg-[#ADF802] hover:text-pink-600 hover:font-semibold' disabled ={todo.length <=3 } onClick={handelAdd}>Add</button>
-        </div>
+      <div className='  my-5 bg-yellow-100 rounded-xl p-5 min-h-[70vh] w-1/2 mx-auto '>
+     
+     
+          <div className="addTodo ">
+          <h1 className='font-bold text-center text-xl text-pink-700 font-mono '>iTask - Manage your todos at one place </h1>
+          
+            {/* <h2 className='text-lg font-bold text-pink-700'>Add a Todo</h2> */}
+            <input className=' mt-8 focus:border-pink-500 rounded-full w-1/2' onChange={handelChange} value={todo} type="text" />
+            <button className='bg-pink-500 text-white rounded-md p-3 py-1 mx-4 hover:bg-[#ADF802] hover:text-pink-600 hover:font-semibold' disabled={todo.length <= 3} onClick={handelAdd}>Add</button>
+          </div>
 
-<input onChange={toggleFinished} type="checkbox" checked={ShowFinished} /> Show Finished
-        <p className='text-lg font-bold text-pink-700' >Your Todos</p>
+          <input onChange={toggleFinished} type="checkbox" checked={ShowFinished} /> Show Finished
+          <p className='text-lg font-bold text-pink-700' >Your Todos</p>
 
-        {todos.length === 0 && <div>No todos To Display</div>}
+          {todos.length === 0 && <div>No todos To Display</div>}
 
-        {todos.map((item) => {
-          return  (ShowFinished || !item.isCompleted) && <div className="todos  " key={item.id}>
-            <div className='todo flex my-4 w-1/4 justify-between'>
-              <div className="flex gap-5 items-center">
-                <input onChange={handelCheckbox} type="checkbox" checked={item.isCompleted} name={item.id} />
-                <div className={item.isCompleted ? "line-through" : ""}>
-                  {item.todo}
+          {todos.map((item) => {
+            return (ShowFinished || !item.isCompleted) && <div className="todos  " key={item.id}>
+              <div className='todo flex my-4 w-1/2 justify-between'>
+                <div className="flex gap-5 items-center">
+                  <input onChange={handelCheckbox} type="checkbox" checked={item.isCompleted} name={item.id} />
+                  <div className={item.isCompleted ? "line-through" : ""}>
+                    {item.todo}
+                  </div>
+                </div>
+                <div className="buttons flex h-full">
+                  <button className='text-xl text-pink-700 rounded-md p-3 py-1 mx-4 hover:text-[#8BBE1C] hover:font-semibold' onClick={() => { handelEdit(item.id) }}> <FaRegEdit /></button>
+                  <button className=' text-xl text-pink-700 rounded-md p-3 py-1 mx-4  hover:text-[#8BBE1C] hover:font-semibold' onClick={() => { handelDelete(item.id) }}><MdDelete /></button>
                 </div>
               </div>
-              <div className="buttons flex h-full">
-                <button className='bg-pink-500 text-white rounded-md p-3 py-1 mx-4 hover:bg-[#ADF802] hover:text-pink-600 hover:font-semibold' onClick={() => { handelEdit(item.id) }}>Edit</button>
-                <button className='bg-pink-500 text-white rounded-md p-3 py-1 mx-4 hover:bg-[#ADF802] hover:text-pink-600 hover:font-semibold' onClick={() => { handelDelete(item.id) }}>Delete</button>
-              </div>
             </div>
-          </div>
-        })}
+          })}
 
 
-      </div>
+        </div>
+      
     </>
   )
 }
