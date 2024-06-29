@@ -28,13 +28,13 @@ function App() {
 
   const handelCheckbox = (e) => {
     let id = e.target.name
-    let index = todos.findIndex((item)=>{
+    let index = todos.findIndex((item) => {
       return item.id == id
     })
     let newTodos = todos
-    
-      newTodos[index].isCompleted = !newTodos[index].isCompleted 
-      settodos(newTodos)
+
+    newTodos[index].isCompleted = !newTodos[index].isCompleted
+    settodos(newTodos)
   }
 
   return (

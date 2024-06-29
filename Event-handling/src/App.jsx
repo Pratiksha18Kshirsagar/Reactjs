@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
 
-  const [naam, setvalue] = useState("Mona")
+  const [naam, setnaam] = useState("Mona")
   const [form, setForm] = useState({ email: "", phone: "" })
 
   const handleClick = () => {
@@ -21,7 +21,7 @@ function App() {
     // console.log(e)
     // console.log(e.target)
     // console.log(e.target.value)
-    setvalue(e.target.value)
+    setnaam(e.target.value)
 
   }
 

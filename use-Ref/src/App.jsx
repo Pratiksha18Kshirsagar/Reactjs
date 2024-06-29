@@ -16,37 +16,37 @@ function App() {
   }, [])
 
   useEffect(() => {
-  a.current = a.current+1;
-  alert("value of a is Persisted")
-  console.log(a.current)
-  
-    
+    a.current = a.current + 1;
+    alert("value of a is Persisted")
+    console.log(a.current)
+
+
   })
 
 
-  
+
   const [todos, setodos] = useState([{
     title: "I am todo",
     desc: "I am good todo"
   },
-    {
-      title: "I am todo",
-      desc: "I am good todo"
-    },
-    {
-      title: "I am todo",
-      desc: "I am good todo"
-    }])
+  {
+    title: "I am todo",
+    desc: "I am good todo"
+  },
+  {
+    title: "I am todo",
+    desc: "I am good todo"
+  }])
 
 
-  const todo = (todo) => {
+  const Todo = (prop) => {
     return (
       <>
         <div>
-          <div>{todo.title}</div>
-          <div>{todo.desc}</div>
+          <div>{prop.title}</div>
+          <div>{prop.desc}</div>
         </div>
-       
+
       </>
     )
   }
@@ -55,9 +55,9 @@ function App() {
 
   return (
     <>
-    {todos.map((todo)=>{
-return <todo todo={todo} />
-    })}
+      {todos.map((todo) => {
+        return <Todo prop={todo} />
+      })}
       <p>{count}</p>
       <div>
         <button ref={p} onClick={() => {
