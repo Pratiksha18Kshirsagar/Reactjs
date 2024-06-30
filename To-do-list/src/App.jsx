@@ -74,29 +74,32 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className='  my-5 bg-yellow-100 rounded-xl p-5 min-h-[70vh] w-1/2 mx-auto '>
+      <div className='container max-lg:w-[90vw]  my-5 bg-yellow-100 rounded-xl p-5 min-h-[70vh] w-1/2 mx-auto '>
      
      
           <div className="addTodo ">
           <h1 className='font-bold text-center text-xl text-pink-700 font-mono '>iTask - Manage your todos at one place </h1>
           
             {/* <h2 className='text-lg font-bold text-pink-700'>Add a Todo</h2> */}
-            <input className=' mt-8 focus:border-pink-500 rounded-full w-1/2' onChange={handelChange} value={todo} type="text" />
-            <button className='bg-pink-500 text-white rounded-md p-3 py-1 mx-4 hover:bg-[#ADF802] hover:text-pink-600 hover:font-semibold' disabled={todo.length <= 3} onClick={handelAdd}>Add</button>
+            <div className='flex flex-col gap-5 items-center'>
+
+            <input className=' mt-8 focus:border-pink-500 rounded-full w-[460px] max-lg:w-[85vw]' onChange={handelChange} value={todo} type="text" />
+            <button className='bg-pink-500 text-white rounded-md p-3 py-1 w-[80px] hover:bg-[#ADF802] hover:text-pink-600 hover:font-semibold' disabled={todo.length <= 3} onClick={handelAdd}>Add</button>
+            </div>
           </div>
 
           <input onChange={toggleFinished} type="checkbox" checked={ShowFinished} /> Show Finished
-          <p className='text-lg font-bold text-pink-700' >Your Todos</p>
+          <p className='text-lg font-semibold  text-pink-600 underline text-center' >Your Todos</p>
 
           {todos.length === 0 && <div>No todos To Display</div>}
 
           {todos.map((item) => {
-            return (ShowFinished || !item.isCompleted) && <div className="todos  " key={item.id}>
-              <div className='todo flex my-4 w-1/2 justify-between'>
+            return (ShowFinished || !item.isCompleted) && <div className="todos flex flex-col items-center" key={item.id}>
+              <div className='todo flex my-4 w-3/4 justify-between'>
                 <div className="flex gap-5 items-center">
                   <input onChange={handelCheckbox} type="checkbox" checked={item.isCompleted} name={item.id} />
-                  <div className={item.isCompleted ? "line-through" : ""}>
-                    {item.todo}
+                  <div className='{item.isCompleted ? "line-through" : ""}  max-w-[50vw] min-h-[10px]' >
+                    {item.todo} 
                   </div>
                 </div>
                 <div className="buttons flex h-full">
