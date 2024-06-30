@@ -95,10 +95,10 @@ function App() {
 
           {todos.map((item) => {
             return (ShowFinished || !item.isCompleted) && <div className="todos flex flex-col items-center" key={item.id}>
-              <div className='todo flex my-4 w-3/4 justify-between'>
+              <div className='todo flex my-4 w-3/4 max-lg:w-[98%] justify-between'>
                 <div className="flex gap-5 items-center">
                   <input onChange={handelCheckbox} type="checkbox" checked={item.isCompleted} name={item.id} />
-                  <div className='{item.isCompleted ? "line-through" : ""}  max-w-[50vw] min-h-[10px]' >
+                  <div className={item.isCompleted ? "line-through" : ""}  >
                     {item.todo} 
                   </div>
                 </div>
