@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    display: flex;
+    gap: 40px;
+    background-color: darkmagenta;
+    padding: 20px;
+
+
+}
+li{
+    list-style: none;
+}
+
+li a{
+    font-size: 20px;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+a{
+    text-decoration: none;
+}
+
+
+.red{
+    background-color: pink;
+}
