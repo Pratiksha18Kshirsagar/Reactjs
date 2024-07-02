@@ -9,7 +9,7 @@ const component1 = () => {
   console.log(value)
   return (
     <div>
-      {value}
+      {value.count}
   
     </div>
 
